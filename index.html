@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Lativa | Identity-Led Storytelling Studio</title>
+  <meta name="description" content="Ayudamos a las marcas a descubrir quiénes son y transformamos esa identidad en un lenguaje verbal y visual con claridad.">
+  
+  <!-- SEO & Open Graph -->
+  <meta property="og:title" content="Mente Lativa | Identity-Led Storytelling Studio">
+  <meta property="og:description" content="Ayudamos a las marcas a descubrir quiénes son y transformamos esa identidad en un lenguaje verbal y visual con claridad.">
+  <meta property="og:type" content="website">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+  <div id="custom-cursor-follower" class="custom-cursor-follower"></div>
+
+  <!-- Fullscreen Video Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="video-container">
+      <video id="intro-video" class="intro-video" autoplay playsinline>
+        <source src="assets/video.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+    </div>
+    <div class="preloader-controls">
+      <button id="toggle-audio-btn" class="audio-btn" aria-label="Silenciar/Activar Audio">
+        <svg id="audio-icon-muted" class="audio-icon hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M11 5L6 9H2v6h4l5 4V5zM23 9l-6 6M17 9l6 6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <svg id="audio-icon-playing" class="audio-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M11 5L6 9H2v6h4l5 4V5zM15.54 8.46a5 5 0 0 1 0 7.07M19.07 4.93a10 10 0 0 1 0 14.14" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button id="skip-intro-btn" class="skip-btn" aria-label="Saltar Intro">
+        <span>Saltar Intro</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header id="main-header" class="main-header">
+    <div class="header-container">
+      <a href="#hero" class="logo-link" id="logo-anchor">
+        <img src="assets/logos/logo_mente_lativa.png" alt="Mente Lativa Logo" class="header-logo">
+        <span class="logo-text">MENTE LATIVA</span>
+      </a>
+      <nav id="main-nav" class="main-nav">
+        <ul>
+          <li><a href="#estudio" class="nav-link" id="nav-link-estudio">El Estudio</a></li>
+          <li><a href="#servicios" class="nav-link" id="nav-link-servicios">Dos Lenguajes</a></li>
+          <li><a href="#metodo" class="nav-link" id="nav-link-metodo">Método REVELA™</a></li>
+          <li><a href="#portafolio" class="nav-link" id="nav-link-portafolio">Portafolio</a></li>
+          <li><a href="#contacto" class="nav-btn" id="nav-link-contacto">¿Conversamos?</a></li>
+        </ul>
+      </nav>
+      <!-- Mobile Menu Toggle -->
+      <button id="menu-toggle" class="menu-toggle" aria-label="Abrir Menú">
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Website Container -->
+  <main id="main-content">
+
+    <!-- Section 1: Hero (Inicio) -->
+    <section id="hero" class="hero-section text-theme-dark bg-theme-black">
+      <div class="hero-container">
+        <div class="hero-label fade-in">Identity-Led Storytelling Studio</div>
+        <h1 class="hero-title fade-in">
+          Ayudamos a las marcas a <span class="text-gold">descubrir</span> quiénes son
+          y transformamos esa <span class="text-italic">identidad</span> en un lenguaje <span class="text-italic-gold">verbal y visual</span> con claridad.
+        </h1>
+        <div class="hero-manifesto fade-in">
+          <p class="manifesto-lead">"La creatividad no es nuestro punto de partida, la identidad sí."</p>
+          <p class="manifesto-text">No hacemos branding genérico. Revelamos quién es realmente una marca, extrayendo su verdadera esencia para darle voz y cuerpo.</p>
+        </div>
+        <div class="hero-cta fade-in">
+          <a href="#contacto" class="cta-button" id="hero-cta-btn">
+            <span>Toda gran marca comienza aquí</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: El Estudio (Filosofía) -->
+    <section id="estudio" class="estudio-section text-theme-black bg-theme-cream">
+      <div class="section-container">
+        <div class="split-layout">
+          <!-- Left side: Large Quote -->
+          <div class="split-col-left scroll-reveal">
+            <h2 class="section-title">El Estudio</h2>
+            <p class="studio-large-quote">
+              Unimos <span class="text-italic-teal">pensamiento estratégico</span> con <span class="text-italic">sensibilidad creativa</span> para generar percepción, conexión y valor a cada contenido.
+            </p>
+          </div>
+          <!-- Right side: Detailed Philosophy -->
+          <div class="split-col-right scroll-reveal">
+            <div class="philosophy-block">
+              <h3 class="block-title">El Talento</h3>
+              <p class="block-text">
+                En Mente Lativa creemos que una gran identidad no nace de un proceso automático ni estandarizado. Nace del criterio, la curiosidad y el compromiso de quienes la construyen.
+              </p>
+              <p class="block-text highlighted-text">
+                Por eso, cada proyecto es liderado directamente por quienes definen la estrategia y diseñan la identidad, sin intermediarios que diluyan la esencia.
+              </p>
+            </div>
+            
+            <div class="philosophy-block">
+              <h3 class="block-title">El Criterio (25 Años)</h3>
+              <p class="block-text">
+                25 años construyendo marcas nos enseñaron una verdad ineludible: ninguna estrategia, campaña o diseño puede sustituir una identidad clara y bien definida.
+              </p>
+              <p class="block-text">
+                Esa experiencia —desarrollando marcas de hospitalidad, proyectos editoriales, metodologías de naming y plataformas narrativas— dio origen a Mente Lativa. Hoy convertimos ese conocimiento en un proceso claro y accionable.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Dos Lenguajes (Servicios) -->
+    <section id="servicios" class="servicios-section text-theme-dark bg-theme-teal">
+      <div class="section-container">
+        <header class="section-header scroll-reveal">
+          <h2 class="section-title">Dos Lenguajes</h2>
+          <p class="section-subtitle">"Toda identidad se expresa en dos lenguajes. Cuando ambos hablan en sintonía, una marca se vuelve memorable."</p>
+        </header>
+
+        <div class="services-split">
+          <!-- Verbal Identity Card -->
+          <div class="service-card scroll-reveal" id="verbal-card">
+            <div class="card-number">01</div>
+            <h3 class="card-title">Identidad Verbal <span class="card-action">Construye significado</span></h3>
+            <p class="card-intro">Las palabras no describen una marca. La definen.</p>
+            <ul class="service-list">
+              <li>
+                <strong>Brand Book:</strong>
+                <span>Personalidad de marca, voz, tono, estilo verbal y diccionario de marca.</span>
+              </li>
+              <li>
+                <strong>Contenido Estratégico:</strong>
+                <span>Brand copy, narrativa máster, campañas, storytelling y contenido digital.</span>
+              </li>
+              <li>
+                <strong>Naming:</strong>
+                <span>Naming estratégico con visión comercial, racional, arquitectura de marca y sistema de nomenclatura.</span>
+              </li>
+              <li>
+                <strong>Ghostwriting & Editorial:</strong>
+                <span>Libros, artículos de opinión, guiones, discursos y escritura ejecutiva de alto nivel.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Visual Identity Card -->
+          <div class="service-card scroll-reveal" id="visual-card">
+            <div class="card-number">02</div>
+            <h3 class="card-title">Identidad Visual <span class="card-action">Construye percepción</span></h3>
+            <p class="card-intro">Cada elemento visual de una marca es un símbolo que construye narrativa.</p>
+            <ul class="service-list">
+              <li>
+                <strong>Construcción de Identidad:</strong>
+                <span>Logotipo, sistema gráfico, paleta cromática, tipografía y lineamientos visuales.</span>
+              </li>
+              <li>
+                <strong>Aplicaciones de Marca:</strong>
+                <span>Materiales corporativos premium, señalética, packaging y piezas de comunicación física.</span>
+              </li>
+              <li>
+                <strong>Diseño Editorial & Digital:</strong>
+                <span>Diseño de libros, revistas, informes corporativos, sitios web y estrategia de experiencia digital.</span>
+              </li>
+              <li>
+                <strong>Storytelling Visual & Dirección de Arte:</strong>
+                <span>Presentaciones de marca, curaduría visual, criterios estéticos y acompañamiento creativo.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Método REVELA™ (Horizontal Scroll Section) -->
+    <section id="metodo" class="metodo-section bg-theme-black text-theme-dark">
+      <div class="horizontal-scroll-container">
+        <!-- Introduction Slide -->
+        <div class="scroll-slide intro-slide">
+          <div class="slide-content">
+            <span class="slide-label">Nuestro Proceso</span>
+            <h2 class="slide-title">Método <span class="text-gold">REVELA™</span></h2>
+            <p class="slide-description">
+              Un proceso estructurado de trabajo que da certidumbre a los clientes y revela la verdadera esencia de cada marca paso a paso.
+            </p>
+            <div class="scroll-indicator">
+              <span>Desliza para descubrir</span>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 1: Descubrir -->
+        <div class="scroll-slide step-slide">
+          <div class="slide-content">
+            <div class="step-num">01</div>
+            <h3 class="step-title">Descubrir</h3>
+            <h4 class="step-subtitle">Profundizar en la historia</h4>
+            <p class="step-text">
+              Analizamos a fondo la historia, la visión, la personalidad y el propósito del proyecto para revelar una identidad clara y un posicionamiento verdaderamente auténtico.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2: Definir -->
+        <div class="scroll-slide step-slide">
+          <div class="slide-content">
+            <div class="step-num">02</div>
+            <h3 class="step-title">Definir</h3>
+            <h4 class="step-subtitle">Darle voz a la esencia</h4>
+            <p class="step-text">
+              Le damos una voz al proyecto. Convertimos esa identidad única en un lenguaje propio, narrativa de marca y mensajes clave para que cada palabra construya significado y valor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3: Expresar -->
+        <div class="scroll-slide step-slide">
+          <div class="slide-content">
+            <div class="step-num">03</div>
+            <h3 class="step-title">Expresar</h3>
+            <h4 class="step-subtitle">Traducir verbal y visualmente</h4>
+            <p class="step-text">
+              Traducimos la identidad en un lenguaje verbal y visual coherente. Comunicamos con absoluta claridad, creatividad y en total sintonía con la personalidad de la marca.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 4: Activar -->
+        <div class="scroll-slide step-slide">
+          <div class="slide-content">
+            <div class="step-num">04</div>
+            <h3 class="step-title">Activar</h3>
+            <h4 class="step-subtitle">Conectar y hacer historia</h4>
+            <p class="step-text">
+              El verdadero valor de una identidad no se queda en un Brand Book. Contamos historias vivas que se sienten en cada canal, conectan emocionalmente con la audiencia y generan valor comercial.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Portafolio / Nuestros Proyectos -->
+    <section id="portafolio" class="portafolio-section text-theme-black bg-theme-cream">
+      <div class="section-container">
+        
+        <!-- Header -->
+        <header class="section-header scroll-reveal">
+          <h2 class="section-title">Portafolio</h2>
+          <span class="portfolio-highlight-tag">El Gran Diferenciador</span>
+          <h3 class="portfolio-lead-title">Hospitality Storytelling</h3>
+          <p class="portfolio-subtitle">
+            Más de 25 años construyendo identidades y narrativas de marca para hoteles boutique, resorts de ultra-lujo y restaurantes icónicos donde la experiencia comienza mucho antes del primer contacto.
+          </p>
+        </header>
+
+        <!-- Hospitality Ticker (Infinite Scroll) -->
+        <div class="ticker-container scroll-reveal">
+          <div class="ticker-wrapper" id="hospitality-marquee">
+            <!-- Programmatically filled with hospitality logos -->
+          </div>
+        </div>
+
+        <!-- Success cases header -->
+        <div class="cases-header scroll-reveal">
+          <h3 class="cases-title">Marcas que confían en nosotros</h3>
+          <p class="cases-subtitle">Nuestros clientes entienden una misma verdad: si no defines una historia sobre tu marca, otros lo harán por ti.</p>
+        </div>
+
+        <!-- Brand Logos Grid -->
+        <div class="logos-grid scroll-reveal" id="brands-grid">
+          <!-- Programmatically filled with segmented success brand logos -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 6: Contacto (Footer) -->
+    <section id="contacto" class="contacto-section text-theme-dark bg-theme-black">
+      <div class="section-container">
+        <div class="contacto-split">
+          <!-- Left side: Messaging -->
+          <div class="contacto-info-col scroll-reveal">
+            <span class="contact-label">Hablemos</span>
+            <h2 class="contact-title">Nos encantará hacer historia contigo.<br><span class="text-italic-gold">¿Conversamos?</span></h2>
+            
+            <div class="direct-contact-info">
+              <a href="mailto:hola@mentelativa.mx" class="contact-info-link" id="contact-email">
+                <span class="link-label">Escríbenos</span>
+                <span class="link-value">hola@mentelativa.mx</span>
+              </a>
+              <a href="https://wa.me/525547317379" target="_blank" rel="noopener" class="contact-info-link" id="contact-whatsapp">
+                <span class="link-label">WhatsApp</span>
+                <span class="link-value">55 4731 7379</span>
+              </a>
+              <a href="https://instagram.com/mentelativa" target="_blank" rel="noopener" class="contact-info-link" id="contact-instagram">
+                <span class="link-label">Instagram</span>
+                <span class="link-value">@mentelativa</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right side: Conversational Form -->
+          <div class="contacto-form-col scroll-reveal">
+            <form id="conversational-form" class="conversational-form" action="#" method="POST">
+              <div class="form-line">
+                <span>Hola, me llamo</span>
+                <input type="text" id="form-name" name="name" placeholder="tu nombre" required autocomplete="name">
+              </div>
+              <div class="form-line">
+                <span>y represento a</span>
+                <input type="text" id="form-company" name="company" placeholder="tu marca o proyecto" required autocomplete="organization">
+              </div>
+              <div class="form-line">
+                <span>puedes escribirme a</span>
+                <input type="email" id="form-email" name="email" placeholder="tu correo electrónico" required autocomplete="email">
+              </div>
+              <div class="form-line">
+                <span>me gustaría conversar sobre</span>
+                <select id="form-interest" name="interest" required>
+                  <option value="" disabled selected>selecciona una opción</option>
+                  <option value="verbal">Identidad Verbal</option>
+                  <option value="visual">Identidad Visual</option>
+                  <option value="completo">Proyecto Integral (Ambos)</option>
+                  <option value="otro">Otra idea creativa</option>
+                </select>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" id="form-submit-btn" class="form-submit-btn">
+                  <span>Enviar Mensaje</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <div id="form-success-msg" class="form-success-msg hidden">
+              <p>¡Gracias por escribirnos! En breve nos pondremos en contacto contigo para hacer historia juntos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Mente Lativa. Todos los derechos reservados. Diseñado para marcas memorables.</p>
+          <a href="#hero" class="back-to-top" id="back-to-top-btn" aria-label="Volver arriba">
+            <span>Volver arriba</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Libraries: GSAP, ScrollTrigger, Lenis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+  <!-- Main Interaction Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>
