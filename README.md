@@ -47,11 +47,7 @@ El sitio utiliza una paleta cromática y de tipografía extraída con precisión
 
 ## 🚀 Funcionalidades Clave
 
-1.  **Intro Preloader con Audio Inteligente:**
-    *   Reproduce `video.mp4` a pantalla completa en la carga inicial.
-    *   **Fallback de Autoplay:** Si el navegador bloquea el audio automático, la intro se silencia para garantizar la fluidez visual de la carga.
-    *   **Audio Toggle:** Un control sutil (icono de bocina) permite activar/desactivar el sonido en cualquier momento.
-    *   **Botón Saltar Intro:** Desvanece la intro y habilita el scroll de forma inmediata.
+1.  **Entrada Directa y Fluida (Sin Intro):** La página carga directamente con animaciones suaves de entrada en la sección Hero.
 2.  **Scroll Smooth (Lenis):** Integración nativa de desplazamiento suave a 60 FPS sin jaloneos.
 3.  **Scroll Horizontal (GSAP):** La sección **Método REVELA™** bloquea la pantalla verticalmente y permite avanzar de forma horizontal por sus 4 pasos (Descubrir, Definir, Expresar, Activar).
 4.  **Temas Dinámicos en Scroll:** El fondo de la página cambia de color suavemente conforme el usuario hace scroll entre diferentes secciones.
