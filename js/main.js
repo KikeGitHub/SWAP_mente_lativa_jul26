@@ -631,8 +631,13 @@ function initLogoClickEffect() {
 
   if (!logoAnchor || !logoImg) return;
 
+  let isAnimating = false;
+
   logoAnchor.addEventListener('click', (e) => {
     e.preventDefault();
+
+    if (isAnimating) return;
+    isAnimating = true;
 
     // 1. Smooth scroll to top via Lenis
     if (lenis) {
@@ -642,16 +647,24 @@ function initLogoClickEffect() {
     }
 
     // 2. Rotate & Spring Scale GSAP animation on the logo image
-    gsap.timeline()
-      .to(logoImg, {
-        rotate: "+=360",
-        scale: 1.3,
-        duration: 0.55,
-        ease: "back.out(2)"
-      })
+    gsap.timeline({
+      onComplete: () => {
+        gsap.set(logoImg, { clearProps: "transform" });
+        isAnimating = false;
+      }
+    })
+      .fromTo(logoImg, 
+        { rotate: 0, scale: 1 },
+        {
+          rotate: 360,
+          scale: 1.25,
+          duration: 0.55,
+          ease: "back.out(1.8)"
+        }
+      )
       .to(logoImg, {
         scale: 1,
-        duration: 0.35,
+        duration: 0.3,
         ease: "power2.out"
       });
 
@@ -663,6 +676,74 @@ function initLogoClickEffect() {
       );
     }
   });
+}
+
+// Método REVELA™ Interactive Slider
+function initRevelaSlider() {
+  const track = document.getElementById('revela-slider-track');
+  const prevBtn = document.getElementById('revela-prev-btn');
+  const nextBtn = document.getElementById('revela-next-btn');
+  const dotItems = document.querySelectorAll('.revela-dot-item');
+  const slides = document.querySelectorAll('.revela-slide');
+
+  if (!track || !slides.length) return;
+
+  let currentSlide = 0;
+
+  function goToSlide(index) {
+    if (index < 0 || index >= slides.length) return;
+    currentSlide = index;
+
+    // Shift track using margin-left for bulletproof slide transition
+    track.style.marginLeft = `-${currentSlide * 100}%`;
+
+    slides.forEach((s, idx) => {
+      s.classList.toggle('active', idx === currentSlide);
+    });
+
+    dotItems.forEach((d, idx) => {
+      d.classList.toggle('active', idx === currentSlide);
+    });
+
+    if (prevBtn) prevBtn.classList.toggle('is-disabled', currentSlide === 0);
+    if (nextBtn) nextBtn.classList.toggle('is-disabled', currentSlide === slides.length - 1);
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentSlide - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(currentSlide + 1);
+    });
+  }
+
+  dotItems.forEach((dot, idx) => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      goToSlide(idx);
+    });
+  });
+
+  // Touch swipe support
+  let startX = 0;
+  track.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    const endX = e.changedTouches[0].clientX;
+    const diffX = startX - endX;
+    if (Math.abs(diffX) > 40) {
+      if (diffX > 0) goToSlide(currentSlide + 1);
+      else goToSlide(currentSlide - 1);
+    }
+  }, { passive: true });
 }
 
 // Initialize Everything On DOM Load
@@ -679,6 +760,7 @@ window.addEventListener('DOMContentLoaded', () => {
   initRevelaScramble();
   initFluidWeight();
   initLogoClickEffect();
+  initRevelaSlider();
 });
 
 
