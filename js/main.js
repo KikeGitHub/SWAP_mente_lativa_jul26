@@ -761,6 +761,15 @@ window.addEventListener('DOMContentLoaded', () => {
   initFluidWeight();
   initLogoClickEffect();
   initRevelaSlider();
+
+  // Debounced ScrollTrigger refresh on resize
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 250);
+  });
 });
 
 
