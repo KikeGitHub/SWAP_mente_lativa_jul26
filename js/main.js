@@ -365,13 +365,31 @@ function initScrollAnimations() {
     onLeaveBack: () => gsap.to("body", { backgroundColor: "#030103", color: "#ffffff", duration: 0.6 }),
   });
 
+  // 3b. Consultoría Estratégica (Deep Blue-Teal)
+  ScrollTrigger.create({
+    trigger: "#consultoria",
+    start: "top 50%",
+    end: "bottom 50%",
+    onEnter: () => gsap.to("body", { backgroundColor: "#002c42", color: "#ffffff", duration: 0.6 }),
+    onLeaveBack: () => gsap.to("body", { backgroundColor: "#4197B4", color: "#ffffff", duration: 0.6 }),
+  });
+
+  // 3c. Nuestro Talento (Deep Blue-Teal)
+  ScrollTrigger.create({
+    trigger: "#talento",
+    start: "top 50%",
+    end: "bottom 50%",
+    onEnter: () => gsap.to("body", { backgroundColor: "#002538", color: "#ffffff", duration: 0.6 }),
+    onLeaveBack: () => gsap.to("body", { backgroundColor: "#002c42", color: "#ffffff", duration: 0.6 }),
+  });
+
   // 4. Portafolio (Cream)
   ScrollTrigger.create({
     trigger: "#portafolio",
     start: "top 50%",
     end: "bottom 50%",
     onEnter: () => gsap.to("body", { backgroundColor: "#FEFAF2", color: "#030103", duration: 0.6 }),
-    onLeaveBack: () => gsap.to("body", { backgroundColor: "#4197B4", color: "#ffffff", duration: 0.6 }),
+    onLeaveBack: () => gsap.to("body", { backgroundColor: "#002538", color: "#ffffff", duration: 0.6 }),
   });
 
   // 5. Contacto (Black)
