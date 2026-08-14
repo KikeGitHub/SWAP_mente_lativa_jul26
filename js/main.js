@@ -413,12 +413,49 @@ function initNavAndForms() {
     mainNav.classList.toggle('active');
   });
 
-  // Close nav on click link
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      mainNav.classList.remove('active');
+  // Smooth Lenis Scroll for all header links with header offset
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      const targetId = anchor.getAttribute('href');
+      if (!targetId || targetId === '#') return;
+      
+      // Ignore logo anchor as it has its own click animation handler
+      if (anchor.id === 'logo-anchor') return;
+
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        // Close mobile menu
+        menuToggle.classList.remove('active');
+        mainNav.classList.remove('active');
+
+        if (lenis) {
+          lenis.scrollTo(targetEl, { offset: -80, duration: 1.2 });
+        } else {
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
     });
+  });
+
+  // Scroll-Spy: Highlight active section link in top header menu
+  const sections = document.querySelectorAll('section[id]');
+  sections.forEach(section => {
+    const id = section.getAttribute('id');
+    const navLink = document.querySelector(`.nav-link[href="#${id}"]`);
+    if (navLink) {
+      ScrollTrigger.create({
+        trigger: section,
+        start: "top 45%",
+        end: "bottom 45%",
+        onToggle: (self) => {
+          if (self.isActive) {
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            navLink.classList.add('active');
+          }
+        }
+      });
+    }
   });
 
   // Conversational Form logic

@@ -299,13 +299,13 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   list-style: none;
   align-items: center;
-  gap: 40px;
+  gap: 28px;
 }
 
 .nav-link {
   text-decoration: none;
   color: var(--text-gray-light);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   letter-spacing: 0.05em;
   font-weight: 400;
   transition: var(--transition-fast);
@@ -324,11 +324,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition-fast);
 }
 
-.nav-link:hover {
-  color: var(--text-white);
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-gold-light);
 }
 
-.nav-link:hover::after {
+.nav-link:hover::after,
+.nav-link.active::after {
   width: 100%;
 }
 
