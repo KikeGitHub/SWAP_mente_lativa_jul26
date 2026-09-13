@@ -24,18 +24,17 @@
   <header id="main-header" class="main-header">
     <div class="header-container">
       <a href="#intro-banner" class="logo-link" id="logo-anchor">
-        <span class="logo-shockwave" id="logo-shockwave"></span>
         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/logos/logo_mente_lativa.png' ); ?>" alt="Mente Lativa Logo" class="header-logo" id="header-logo-img">
         <span class="logo-text">MENTE LATIVA</span>
       </a>
       <nav id="main-nav" class="main-nav">
         <ul>
-          <li><a href="#estudio" class="nav-link" id="nav-link-estudio">El Estudio</a></li>
+          <li><a href="#estudio" class="nav-link" id="nav-link-estudio">Somos</a></li>
           <li><a href="#servicios" class="nav-link" id="nav-link-servicios">Servicios</a></li>
           <li><a href="#metodo" class="nav-link" id="nav-link-metodo">Método REVELA™</a></li>
           <li><a href="#consultoria" class="nav-link" id="nav-link-consultoria">Consultoría</a></li>
-          <li><a href="#talento" class="nav-link" id="nav-link-talento">Nuestro Talento</a></li>
-          <li><a href="#portafolio" class="nav-link" id="nav-link-portafolio">Portafolio</a></li>
+          <li><a href="#talento" class="nav-link" id="nav-link-talento">Nuestra Filosofía</a></li>
+          <li><a href="#portafolio" class="nav-link" id="nav-link-portafolio">Clientes</a></li>
           <li><a href="#contacto" class="nav-btn" id="nav-link-contacto">¿Conversamos?</a></li>
         </ul>
       </nav>

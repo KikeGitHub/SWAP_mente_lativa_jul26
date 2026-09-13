@@ -207,37 +207,75 @@ function loadPortfolioLogos() {
     }
   }
 
-  // Infinite Scroll GSAP Animation
-  const totalMarqueeWidth = marquee.scrollWidth / 2;
-  gsap.to(marquee, {
-    x: -totalMarqueeWidth,
-    duration: 30,
-    ease: "none",
-    repeat: -1,
-  });
+  // Infinite Scroll GSAP Animation — wait for images to load first
+  const allImgs = marquee.querySelectorAll('img');
+  let loadedCount = 0;
+  const totalImgs = allImgs.length;
+
+  function startMarquee() {
+    const totalMarqueeWidth = marquee.scrollWidth / 2;
+    if (totalMarqueeWidth > 0) {
+      gsap.to(marquee, {
+        x: -totalMarqueeWidth,
+        duration: 35,
+        ease: "none",
+        repeat: -1,
+      });
+    }
+  }
+
+  if (totalImgs === 0) {
+    startMarquee();
+  } else {
+    allImgs.forEach(img => {
+      if (img.complete) {
+        loadedCount++;
+        if (loadedCount === totalImgs) startMarquee();
+      } else {
+        img.addEventListener('load', () => {
+          loadedCount++;
+          if (loadedCount === totalImgs) startMarquee();
+        });
+        img.addEventListener('error', () => {
+          loadedCount++;
+          if (loadedCount === totalImgs) startMarquee();
+        });
+      }
+    });
+  }
 
   // B. Success Cases Brands Grid
   const grid = document.getElementById('brands-grid');
-  
-  // page 13 has 19 logos
-  for (let i = 1; i <= 19; i++) {
-    createGridItem(grid, `${themeUrl}assets/logos/brands/page_13_img_1_logo_${i}.png`);
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  // 1. Hospitality brand logos first (de entrada) - 17 items
+  for (let i = 1; i <= 17; i++) {
+    createGridItem(grid, `${themeUrl}assets/logos/hospitality/page_16_img_1_logo_${i}.png`, `Hospitality Brand ${i}`);
   }
-  // page 14 has 11 logos (skip logo_7 which is corrupt empty file)
+
+  // 2. Brand logos from page 13 (omit Daniela Varela: logo_11)
+  for (let i = 1; i <= 19; i++) {
+    if (i === 11) continue; // Daniela Varela
+    createGridItem(grid, `${themeUrl}assets/logos/brands/page_13_img_1_logo_${i}.png`, `Cliente ${i}`);
+  }
+
+  // 3. Brand logos from page 14 (omit Mirabilia: logo_6, corrupt: logo_7)
   for (let i = 1; i <= 11; i++) {
-    if (i === 7) continue;
-    createGridItem(grid, `${themeUrl}assets/logos/brands/page_14_img_1_logo_${i}.png`);
+    if (i === 6) continue; // Mirabilia
+    if (i === 7) continue; // Skip corrupt file
+    createGridItem(grid, `${themeUrl}assets/logos/brands/page_14_img_1_logo_${i}.png`, `Marca ${i}`);
   }
 }
 
-function createGridItem(parent, src) {
+function createGridItem(parent, src, altText = 'Logo Cliente') {
   const item = document.createElement('div');
   item.className = 'grid-logo-item';
   const img = document.createElement('img');
   img.src = src;
-  img.alt = 'Logo Cliente';
+  img.alt = altText;
   img.loading = 'lazy';
-  img.onerror = () => { item.style.display = 'none'; };
+  img.onerror = () => { item.remove(); };
   item.appendChild(img);
   parent.appendChild(item);
 }
@@ -283,12 +321,12 @@ function initScrollAnimations() {
       });
     }
 
-    // 2. Panel inner stagger reveal
+    // 2. Panel inner reveal (perfectly synchronized without stagger offset)
     gsap.from('.dl-panel-inner', {
       opacity: 0,
-      y: 30,
-      duration: 1,
-      stagger: 0.2,
+      y: 25,
+      duration: 0.9,
+      stagger: 0,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: dlSection,
@@ -319,29 +357,7 @@ function initScrollAnimations() {
       }
     });
 
-    // 4. Subtle Parallax shift between Verbal & Visual panels on scroll
-    if (window.innerWidth > 900) {
-      gsap.to('.dl-panel--verbal', {
-        y: -30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: dlSection,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      });
-      gsap.to('.dl-panel--visual', {
-        y: 30,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: dlSection,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      });
-    }
+    // 4. Panels are kept perfectly aligned at y:0 (no parallax vertical offset)
 
     // 4. Character Scramble on panel statements when section enters view
     const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ·—.';
@@ -742,57 +758,19 @@ function initFluidWeight() {
   });
 }
 
-// 8. Logo Interactive Click Effect & Shockwave Pulse
+// 8. Logo Click Scroll to Top (Limpio y sin efectos)
 function initLogoClickEffect() {
   const logoAnchor = document.getElementById('logo-anchor');
-  const logoImg = document.getElementById('header-logo-img');
-  const shockwave = document.getElementById('logo-shockwave');
-
-  if (!logoAnchor || !logoImg) return;
-
-  let isAnimating = false;
+  if (!logoAnchor) return;
 
   logoAnchor.addEventListener('click', (e) => {
     e.preventDefault();
 
-    if (isAnimating) return;
-    isAnimating = true;
-
-    // 1. Smooth scroll to top via Lenis
+    // Smooth scroll to top via Lenis or native smooth scroll
     if (lenis) {
       lenis.scrollTo(0, { duration: 1.2 });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    // 2. Rotate & Spring Scale GSAP animation on the logo image
-    gsap.timeline({
-      onComplete: () => {
-        gsap.set(logoImg, { clearProps: "transform" });
-        isAnimating = false;
-      }
-    })
-      .fromTo(logoImg, 
-        { rotate: 0, scale: 1 },
-        {
-          rotate: 360,
-          scale: 1.25,
-          duration: 0.55,
-          ease: "back.out(1.8)"
-        }
-      )
-      .to(logoImg, {
-        scale: 1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-
-    // 3. Expanding Shockwave Ring
-    if (shockwave) {
-      gsap.fromTo(shockwave, 
-        { scale: 0.8, opacity: 0.9, borderColor: '#FFBD58' },
-        { scale: 2.8, opacity: 0, duration: 0.7, ease: "power2.out" }
-      );
     }
   });
 }
