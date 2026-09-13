@@ -1,12 +1,40 @@
 <?php
 /**
- * The main template file
+ * Front Page Template
  *
  * @package MenteLativa
  */
 
 get_header();
 ?>
+
+    <!-- Section 0: Banner de Apertura (Antes de la Intro) -->
+    <section id="intro-banner" class="intro-banner-section">
+      <div class="intro-banner-glow" aria-hidden="true"></div>
+      <div class="intro-banner-container">
+        <div class="intro-banner-card">
+          <img 
+            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/baner_01.png' ); ?>" 
+            alt="Tu marca ya está contando una historia. ¿Comunicas realmente quién eres? - Mente Lativa" 
+            class="intro-banner-img"
+            width="810"
+            height="455"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="intro-banner-action">
+          <a href="#hero" class="intro-scroll-indicator" id="intro-scroll-btn" aria-label="Ir a la introducción del estudio">
+            <span class="intro-scroll-text">Descubre la intro</span>
+            <span class="intro-scroll-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- Section 1: Hero (Inicio) -->
     <section id="hero" class="hero-section text-theme-dark bg-theme-black">
@@ -41,7 +69,7 @@ get_header();
     <section id="estudio" class="estudio-section text-theme-black bg-theme-cream">
       <div class="section-container">
         <div class="estudio-content scroll-reveal">
-          <h2 class="section-title">El Estudio</h2>
+          <h2 class="section-title">Somos</h2>
           <p class="studio-large-quote">
             Unimos <span class="text-italic-teal">pensamiento estratégico</span> con <span class="text-italic">sensibilidad creativa</span> para generar percepción, conexión y valor a cada contenido.
           </p>
@@ -54,7 +82,7 @@ get_header();
         <!-- Hospitality Storytelling (Nuestro Mayor Expertise) -->
         <div class="estudio-hospitality-wrap scroll-reveal" id="hospitality-storytelling">
           <div class="portfolio-tag-row">
-            <span class="portfolio-category-eyebrow">EL ESTUDIO</span>
+            <span class="portfolio-category-eyebrow">SOMOS</span>
             <span class="portfolio-badge">
               <span class="badge-dot"></span>
               Nuestro Mayor Expertise
@@ -62,7 +90,9 @@ get_header();
           </div>
           <h3 class="portfolio-lead-title">Hospitality <em>Storytelling</em></h3>
           <p class="portfolio-subtitle">
-            Más de 25 años construyendo identidades y narrativas de marca para hoteles y restaurantes donde la experiencia comienza mucho antes del primer contacto, incluyendo clientes emblemáticos como <strong>Amadeus</strong>, <strong>Posadas</strong>, <strong>Chablé</strong>, <strong>Ritz-Carlton</strong> y <strong>Park Royal</strong>, entre otros.
+            Más de 25 años contando lo que hace única a una marca de hospitality.<br><br>
+            Porque la experiencia comienza mucho antes del primer contacto: inicia en lo que una marca dice, en cómo se presenta y en la historia que hace imaginar.<br><br>
+            Hemos construido identidades y narrativas para <strong>Amadeus</strong>, <strong>Posadas</strong>, <strong>Chablé</strong>, a <strong>Ritz-Carlton Reserve</strong> y <strong>Park Royal</strong>, entre otras.
           </p>
         </div>
 
@@ -407,12 +437,11 @@ get_header();
             <div class="ce-v-line"></div>
             <span class="ce-dot"></span>
           </div>
-          <div class="ce-statements ce-glass-card">
+          <div class="ce-statements">
             <p class="ce-statement-left">
               No solo construimos marcas.<br>
               <em class="text-gold">Acompañamos</em> a quienes las construyen.
             </p>
-            <div class="ce-h-rule"></div>
             <p class="ce-statement-right">
               No siempre una marca necesita cambiar.<br>
               <em>A veces necesita comprender mejor quién es.</em>
@@ -421,8 +450,7 @@ get_header();
         </div>
 
         <!-- Middle: Big Quote -->
-        <div class="ce-quote-block ce-glass-card scroll-reveal">
-          <span class="ce-quote-mark">“</span>
+        <div class="ce-quote-block scroll-reveal">
           <blockquote class="ce-blockquote">
             La claridad <strong>no consiste</strong> en decirle a una marca quién debe ser.
             Consiste <em class="text-gold">en apoyarla</em> a descubrir quién es,
@@ -430,29 +458,29 @@ get_header();
           </blockquote>
         </div>
 
-        <!-- Bottom: Three Pillars Grid -->
+        <!-- Bottom: Cómo te acompañamos Grid -->
         <div class="ce-pillars-wrap scroll-reveal">
           <div class="ce-pillars-header">
-            <span class="ce-pillars-tag">NUESTROS PILARES</span>
+            <span class="ce-pillars-tag">CÓMO TE ACOMPAÑAMOS</span>
           </div>
           <div class="ce-pillars-grid">
-            <div class="ce-pillar-card ce-glass-card">
+            <div class="ce-pillar-card">
               <span class="ce-pillar-num">01</span>
-              <span class="ce-pillar-word">CONSTRUIMOS</span>
+              <span class="ce-pillar-word">REVELAMOS</span>
               <h3 class="ce-pillar-noun">IDENTIDAD.</h3>
-              <p class="ce-pillar-desc">Definimos la esencia y el propósito que hacen única a tu marca en el mercado.</p>
+              <p class="ce-pillar-desc">Ayudamos a reconocer aquello que hace única a una marca y a convertirlo en un punto de partida estratégico.</p>
             </div>
-            <div class="ce-pillar-card ce-glass-card">
+            <div class="ce-pillar-card">
               <span class="ce-pillar-num">02</span>
               <span class="ce-pillar-word">COMPARTIMOS</span>
               <h3 class="ce-pillar-noun">CRITERIO.</h3>
               <p class="ce-pillar-desc">Aportamos más de 25 años de visión estratégica para orientar cada decisión creativa.</p>
             </div>
-            <div class="ce-pillar-card ce-glass-card">
+            <div class="ce-pillar-card">
               <span class="ce-pillar-num">03</span>
               <span class="ce-pillar-word">ACOMPAÑAMOS</span>
               <h3 class="ce-pillar-noun">DECISIONES.</h3>
-              <p class="ce-pillar-desc">Lideramos cada proyecto directamente sin intermediarios, protegiendo la esencia en todo el camino.</p>
+              <p class="ce-pillar-desc">Ponemos experiencia y perspectiva al servicio de las decisiones que dan forma a la marca.</p>
             </div>
           </div>
         </div>
@@ -473,11 +501,11 @@ get_header();
 
           <!-- Left: Stacked TALENTO Word -->
           <div class="talento-left">
-            <span class="talento-nuestro">nuestro</span>
+            <span class="talento-nuestro">nuestra</span>
             <div class="talento-big-word">
-              <span class="tw-line tw-line--gold">TA</span>
-              <span class="tw-line tw-line--white">LEN</span>
-              <span class="tw-line tw-line--gold">TO</span>
+              <span class="tw-line tw-line--gold">FILO</span>
+              <span class="tw-line tw-line--white">SO</span>
+              <span class="tw-line tw-line--gold">FÍA</span>
             </div>
           </div>
 
@@ -519,8 +547,8 @@ get_header();
         
         <!-- Casos de Éxito / Marcas Header -->
         <div class="cases-header scroll-reveal" id="casos-de-exito">
-          <span class="portfolio-highlight-tag">PORTAFOLIO</span>
-          <h2 class="cases-title text-white">Marcas que confían en nosotros</h2>
+          <span class="portfolio-highlight-tag">CLIENTES</span>
+          <h2 class="cases-title text-white">Marcas que confían<br>en nosotros</h2>
           <p class="cases-subtitle text-white-80">Nuestros clientes entienden una misma verdad: si no defines una historia sobre tu marca, otros lo harán por ti.</p>
         </div>
 
@@ -538,12 +566,15 @@ get_header();
         <div class="contacto-split">
           <!-- Left side: Messaging -->
           <div class="contacto-info-col scroll-reveal">
-            <!-- Stacked bold identity text -->
-            <div class="contact-identity-headline">
-              <span class="cih-line cih-line--teal">ESCRIBIENDO,</span>
-              <span class="cih-line cih-line--white">DISEÑANDO,</span>
-              <span class="cih-line cih-line--teal">CREANDO</span>
-              <span class="cih-line cih-line--white">IDENTIDAD</span>
+            <!-- Contact Identity Graphic (Creando identidad / Escribiendo / Diseñando) -->
+            <div class="contact-identity-banner-wrap">
+              <img 
+                src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/contacto_identidad.png' ); ?>" 
+                alt="Creando identidad, Escribiendo, Diseñando" 
+                class="contact-identity-img" 
+                id="contact-identity-banner"
+                loading="lazy"
+              />
             </div>
 
             <div class="direct-contact-info">
