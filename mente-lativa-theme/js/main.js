@@ -31,23 +31,68 @@ function initSmoothScroll() {
   gsap.ticker.lagSmoothing(0);
 }
 
-// 2. Hero Entrance Animation & Asymmetric Stagger Reveal
+// 2. Intro Banner & Hero Entrance Animations
 function initHeroAnimation() {
+  // A. Intro Banner entrance (initial viewport load)
+  const introCard = document.querySelector('.intro-banner-card');
+  if (introCard) {
+    gsap.from(introCard, {
+      opacity: 0,
+      scale: 0.95,
+      y: 25,
+      duration: 1.1,
+      ease: "power3.out",
+      delay: 0.2
+    });
+    gsap.from('.intro-banner-action', {
+      opacity: 0,
+      y: 15,
+      duration: 0.9,
+      ease: "power2.out",
+      delay: 0.7
+    });
+  }
+
+  // B. Hero section reveal on scroll
   const heroLines = document.querySelectorAll(".hero-line");
-  if (heroLines.length > 0) {
+  const heroEl = document.getElementById('hero');
+  if (heroLines.length > 0 && heroEl) {
     gsap.from(heroLines, {
       opacity: 0,
       x: -30,
       duration: 1.1,
       stagger: 0.14,
       ease: "power3.out",
-      delay: 0.15
+      scrollTrigger: {
+        trigger: heroEl,
+        start: "top 75%",
+        toggleActions: "play none none reverse"
+      }
     });
     gsap.from(".hero-label, .hero-manifesto, .hero-cta", {
       opacity: 0,
       y: 25,
       duration: 1,
-      delay: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: heroEl,
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  } else if (heroLines.length > 0) {
+    gsap.from(heroLines, {
+      opacity: 0,
+      x: -30,
+      duration: 1.1,
+      stagger: 0.14,
+      ease: "power3.out"
+    });
+    gsap.from(".hero-label, .hero-manifesto, .hero-cta", {
+      opacity: 0,
+      y: 25,
+      duration: 1,
       stagger: 0.2,
       ease: "power2.out"
     });

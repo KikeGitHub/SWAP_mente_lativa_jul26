@@ -31,23 +31,68 @@ function initSmoothScroll() {
   gsap.ticker.lagSmoothing(0);
 }
 
-// 2. Hero Entrance Animation & Asymmetric Stagger Reveal
+// 2. Intro Banner & Hero Entrance Animations
 function initHeroAnimation() {
+  // A. Intro Banner entrance (initial viewport load)
+  const introCard = document.querySelector('.intro-banner-card');
+  if (introCard) {
+    gsap.from(introCard, {
+      opacity: 0,
+      scale: 0.95,
+      y: 25,
+      duration: 1.1,
+      ease: "power3.out",
+      delay: 0.2
+    });
+    gsap.from('.intro-banner-action', {
+      opacity: 0,
+      y: 15,
+      duration: 0.9,
+      ease: "power2.out",
+      delay: 0.7
+    });
+  }
+
+  // B. Hero section reveal on scroll
   const heroLines = document.querySelectorAll(".hero-line");
-  if (heroLines.length > 0) {
+  const heroEl = document.getElementById('hero');
+  if (heroLines.length > 0 && heroEl) {
     gsap.from(heroLines, {
       opacity: 0,
       x: -30,
       duration: 1.1,
       stagger: 0.14,
       ease: "power3.out",
-      delay: 0.15
+      scrollTrigger: {
+        trigger: heroEl,
+        start: "top 75%",
+        toggleActions: "play none none reverse"
+      }
     });
     gsap.from(".hero-label, .hero-manifesto, .hero-cta", {
       opacity: 0,
       y: 25,
       duration: 1,
-      delay: 0.8,
+      stagger: 0.2,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: heroEl,
+        start: "top 70%",
+        toggleActions: "play none none reverse"
+      }
+    });
+  } else if (heroLines.length > 0) {
+    gsap.from(heroLines, {
+      opacity: 0,
+      x: -30,
+      duration: 1.1,
+      stagger: 0.14,
+      ease: "power3.out"
+    });
+    gsap.from(".hero-label, .hero-manifesto, .hero-cta", {
+      opacity: 0,
+      y: 25,
+      duration: 1,
       stagger: 0.2,
       ease: "power2.out"
     });
@@ -143,6 +188,7 @@ function initCustomCursor() {
 
 // 4. Load Portfolio Assets Programmatically
 function loadPortfolioLogos() {
+  const themeUrl = (window.menteLativaData && window.menteLativaData.themeUrl) ? (window.menteLativaData.themeUrl.replace(/\/$/, '') + '/') : '';
   // A. Hospitality logos (17 items)
   const marquee = document.getElementById('hospitality-marquee');
   const hospitalityLogoCount = 17;
@@ -153,7 +199,7 @@ function loadPortfolioLogos() {
       const item = document.createElement('div');
       item.className = 'ticker-item';
       const img = document.createElement('img');
-      img.src = `assets/logos/hospitality/page_16_img_1_logo_${i}.png`;
+      img.src = `${themeUrl}assets/logos/hospitality/page_16_img_1_logo_${i}.png`;
       img.alt = `Hotel Logo ${i}`;
       img.loading = 'lazy';
       item.appendChild(img);
@@ -175,12 +221,12 @@ function loadPortfolioLogos() {
   
   // page 13 has 19 logos
   for (let i = 1; i <= 19; i++) {
-    createGridItem(grid, `assets/logos/brands/page_13_img_1_logo_${i}.png`);
+    createGridItem(grid, `${themeUrl}assets/logos/brands/page_13_img_1_logo_${i}.png`);
   }
   // page 14 has 11 logos (skip logo_7 which is corrupt empty file)
   for (let i = 1; i <= 11; i++) {
     if (i === 7) continue;
-    createGridItem(grid, `assets/logos/brands/page_14_img_1_logo_${i}.png`);
+    createGridItem(grid, `${themeUrl}assets/logos/brands/page_14_img_1_logo_${i}.png`);
   }
 }
 
@@ -472,6 +518,24 @@ function initNavAndForms() {
     const interest = document.getElementById('form-interest').value;
 
     if (name && company && email && interest) {
+      // Send data to WordPress AJAX handler if available
+      if (window.menteLativaData && window.menteLativaData.ajaxUrl) {
+        const formData = new FormData();
+        formData.append('action', 'mente_lativa_contact');
+        formData.append('nonce', window.menteLativaData.nonce || '');
+        formData.append('name', name);
+        formData.append('company', company);
+        formData.append('email', email);
+        formData.append('interest', interest);
+
+        fetch(window.menteLativaData.ajaxUrl, {
+          method: 'POST',
+          body: formData
+        }).catch(err => {
+          console.warn('WP Form submit notice:', err);
+        });
+      }
+
       // Fade out form and reveal success message
       gsap.to(form, {
         opacity: 0,

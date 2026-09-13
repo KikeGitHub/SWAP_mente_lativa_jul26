@@ -8,6 +8,34 @@
 get_header();
 ?>
 
+    <!-- Section 0: Banner de Apertura (Antes de la Intro) -->
+    <section id="intro-banner" class="intro-banner-section">
+      <div class="intro-banner-glow" aria-hidden="true"></div>
+      <div class="intro-banner-container">
+        <div class="intro-banner-card">
+          <img 
+            src="<?php echo esc_url( get_template_directory_uri() . '/assets/images/baner_01.png' ); ?>" 
+            alt="Tu marca ya está contando una historia. ¿Comunicas realmente quién eres? - Mente Lativa" 
+            class="intro-banner-img"
+            width="810"
+            height="455"
+            loading="eager"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="intro-banner-action">
+          <a href="#hero" class="intro-scroll-indicator" id="intro-scroll-btn" aria-label="Ir a la introducción del estudio">
+            <span class="intro-scroll-text">Descubre la intro</span>
+            <span class="intro-scroll-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Section 1: Hero (Inicio) -->
     <section id="hero" class="hero-section text-theme-dark bg-theme-black">
 

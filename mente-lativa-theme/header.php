@@ -23,7 +23,7 @@
   <!-- Header Navigation -->
   <header id="main-header" class="main-header">
     <div class="header-container">
-      <a href="#hero" class="logo-link" id="logo-anchor">
+      <a href="#intro-banner" class="logo-link" id="logo-anchor">
         <span class="logo-shockwave" id="logo-shockwave"></span>
         <img src="<?php echo esc_url( get_template_directory_uri() . '/assets/logos/logo_mente_lativa.png' ); ?>" alt="Mente Lativa Logo" class="header-logo" id="header-logo-img">
         <span class="logo-text">MENTE LATIVA</span>
