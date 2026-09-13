@@ -1,0 +1,16 @@
+/*
+Theme Name: Mente Lativa
+Theme URI: https://mentelativa.mx
+Author: Mente Lativa Studio
+Author URI: https://mentelativa.mx
+Description: Tema oficial premium a medida para Mente Lativa con animaciones fluidas GSAP, Lenis Smooth Scroll, cursor líquido y navegación interactiva.
+Version: 1.0.0
+Text Domain: mente-lativa
+*/
+
+/* Reset e inicialización de tema */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

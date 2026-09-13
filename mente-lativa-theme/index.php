@@ -1,0 +1,622 @@
+<?php
+/**
+ * The main template file
+ *
+ * @package MenteLativa
+ */
+
+get_header();
+?>
+
+    <!-- Section 1: Hero (Inicio) -->
+    <section id="hero" class="hero-section text-theme-dark bg-theme-black">
+
+      <!-- Efecto 1: Letter Grid Tapestry Background -->
+      <canvas id="letter-grid-canvas" class="letter-grid-canvas" aria-hidden="true"></canvas>
+
+      <div class="hero-container">
+        <div class="hero-label fade-in">Identity-Led Storytelling Studio</div>
+        <h1 class="hero-title">
+          <span class="hero-line">Ayudamos a las marcas</span><br>
+          <span class="hero-line">a <span id="hero-dynamic-verb" class="text-teal cursor-interactive-word" data-word="descubrir">descubrir</span> quiénes son</span><br>
+          <span class="hero-line">y transformamos su <span class="fw-word text-italic-teal-light cursor-interactive-word" data-final-weight="700">identidad</span></span><br>
+          <span class="hero-line">en un lenguaje <span class="fw-word text-italic-teal-light cursor-interactive-word" data-final-weight="600">verbal y visual</span></span><br>
+          <span class="hero-line">con <span class="fw-word text-italic cursor-interactive-word" data-final-weight="700">claridad</span>.</span>
+        </h1>
+        <div class="hero-manifesto fade-in">
+          <p class="manifesto-lead">La creatividad no es nuestro punto de partida, la identidad sí.</p>
+        </div>
+        <div class="hero-cta fade-in">
+          <a href="#contacto" class="cta-button" id="hero-cta-btn">
+            <span>Toda gran marca comienza aquí</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: El Estudio (Filosofía) -->
+    <section id="estudio" class="estudio-section text-theme-black bg-theme-cream">
+      <div class="section-container">
+        <div class="estudio-content scroll-reveal">
+          <h2 class="section-title">El Estudio</h2>
+          <p class="studio-large-quote">
+            Unimos <span class="text-italic-teal">pensamiento estratégico</span> con <span class="text-italic">sensibilidad creativa</span> para generar percepción, conexión y valor a cada contenido.
+          </p>
+          <p class="studio-origin-text">
+            Mente Lativa nació de una convicción: ninguna estrategia, campaña o creatividad puede sustituir una identidad clara.<br>
+            Más de <strong>25 años</strong> desarrollando marcas, narrativas e identidades con visión estratégica dieron origen a esta forma de trabajar.
+          </p>
+        </div>
+
+        <!-- Hospitality Storytelling (Nuestro Mayor Expertise) -->
+        <div class="estudio-hospitality-wrap scroll-reveal" id="hospitality-storytelling">
+          <div class="portfolio-tag-row">
+            <span class="portfolio-category-eyebrow">EL ESTUDIO</span>
+            <span class="portfolio-badge">
+              <span class="badge-dot"></span>
+              Nuestro Mayor Expertise
+            </span>
+          </div>
+          <h3 class="portfolio-lead-title">Hospitality <em>Storytelling</em></h3>
+          <p class="portfolio-subtitle">
+            Más de 25 años construyendo identidades y narrativas de marca para hoteles y restaurantes donde la experiencia comienza mucho antes del primer contacto, incluyendo clientes emblemáticos como <strong>Amadeus</strong>, <strong>Posadas</strong>, <strong>Chablé</strong>, <strong>Ritz-Carlton</strong> y <strong>Park Royal</strong>, entre otros.
+          </p>
+        </div>
+
+        <!-- Hospitality Ticker (Infinite Scroll) -->
+        <div class="ticker-container scroll-reveal">
+          <div class="ticker-wrapper" id="hospitality-marquee">
+            <!-- Programmatically filled with hospitality logos -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 3: Dos Lenguajes (Servicios) -->
+    <section id="servicios" class="servicios-section">
+
+      <!-- Top intro bar -->
+      <div class="dl-intro-bar">
+        <span class="dl-eyebrow-tag">Nuestros Servicios</span>
+        <h2 class="dl-main-heading">Toda identidad se expresa en <em>dos lenguajes</em></h2>
+      </div>
+
+      <!-- Split Screen Panels -->
+      <div class="dl-split-wrap">
+
+        <!-- LEFT PANEL — Identidad Verbal -->
+        <div class="dl-panel dl-panel--verbal" id="panel-verbal">
+          <div class="dl-panel-inner">
+
+            <!-- Identity label + statement -->
+            <div class="dl-panel-head">
+              <span class="dl-panel-num">01</span>
+              <p class="dl-panel-statement scramble-target" data-text="LAS PALABRAS NO DESCRIBEN UNA MARCA. LA DEFINEN.">
+                LAS PALABRAS NO DESCRIBEN UNA MARCA.<br><span class="text-gold">LA DEFINEN.</span>
+              </p>
+            </div>
+
+            <h3 class="dl-panel-title">Identidad<br><em>Verbal</em></h3>
+
+            <!-- Service list that expands on hover/scroll -->
+            <div class="dl-service-accordion">
+              <div class="dl-acc-item open">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Personalidad de marca</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <p class="dl-acc-lead">Brand Book</p>
+                  <p class="dl-acc-sub">La esencia que define cómo piensa, decide y se comporta una marca.</p>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Voz de marca</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Tono de voz</li><li>Estilo verbal</li><li>Lineamientos de comunicación</li><li>Diccionario de marca</li><li>Mensajes clave</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Contenido estratégico</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Brand Copy</li><li>Narrativa máster</li><li>Campañas</li><li>Storytelling</li><li>Contenido digital</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Naming</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Naming estratégico</li><li>Racional de marca</li><li>Arquitectura de marca</li><li>Sistema de nomenclatura</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Ghostwriting &amp; Editorial</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Libros</li><li>Artículos de opinión</li><li>Guiones</li><li>Discursos</li><li>Escritura ejecutiva</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Vertical center divider -->
+        <div class="dl-v-divider">
+          <div class="dl-v-line"></div>
+          <div class="dl-v-dot"></div>
+        </div>
+
+        <!-- RIGHT PANEL — Identidad Visual -->
+        <div class="dl-panel dl-panel--visual" id="panel-visual">
+          <div class="dl-panel-inner">
+
+            <div class="dl-panel-head">
+              <span class="dl-panel-num">02</span>
+              <p class="dl-panel-statement scramble-target" data-text="CADA ELEMENTO VISUAL ES UN SÍMBOLO QUE CONSTRUYE NARRATIVA.">
+                CADA ELEMENTO VISUAL ES UN SÍMBOLO QUE<br><span class="text-gold">CONSTRUYE NARRATIVA.</span>
+              </p>
+            </div>
+
+            <h3 class="dl-panel-title">Identidad<br><em>Visual</em></h3>
+
+            <div class="dl-service-accordion">
+              <div class="dl-acc-item open">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Construcción de identidad</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Logotipo</li><li>Sistema gráfico</li><li>Paleta cromática</li><li>Tipografía</li><li>Lineamientos visuales</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Aplicaciones de marca</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Materiales corporativos</li><li>Señalética</li><li>Packaging</li><li>Piezas de comunicación física</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Diseño Editorial</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Libros</li><li>Revistas</li><li>Informes corporativos</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Experiencia Digital</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Sitios web</li><li>Estrategia de experiencia digital</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Storytelling Visual</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Presentaciones de marca</li><li>Curaduría visual</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="dl-acc-item">
+                <button class="dl-acc-trigger">
+                  <span class="dl-acc-label">Dirección de Arte</span>
+                  <span class="dl-acc-arrow">→</span>
+                </button>
+                <div class="dl-acc-body">
+                  <ul class="dl-acc-list">
+                    <li>Criterios estéticos</li><li>Acompañamiento creativo</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /dl-split-wrap -->
+    </section>
+
+    <!-- Section 4: Método REVELA™ -->
+    <section id="metodo" class="metodo-section bg-theme-teal text-theme-dark">
+      <div class="section-container">
+        <!-- Header -->
+        <header class="revela-header scroll-reveal">
+          <div class="revela-title-col">
+            <h2 class="revela-main-title text-white">Método REVELA™</h2>
+          </div>
+          <div class="revela-tagline-col">
+            <p class="revela-tagline text-gold">Cómo lo hacemos</p>
+          </div>
+        </header>
+
+        <!-- Slider Wrapper -->
+        <div class="revela-slider-wrapper scroll-reveal">
+          <div class="revela-slider-track" id="revela-slider-track">
+            
+            <!-- SLIDE 1: Intro (Todo comienza aquí...) -->
+            <div class="revela-slide revela-slide--intro active" id="revela-slide-0">
+              <div class="revela-intro-eyebrow">T O D O &nbsp; C O M I E N Z A &nbsp; A Q U Í</div>
+              <div class="revela-intro-grid">
+                
+                <!-- Left Column -->
+                <div class="revela-intro-col revela-intro-col--left">
+                  <h3 class="revela-intro-headline">
+                    Para marcas<br>que <span class="text-gold">nacen.</span><br>
+                    Y para<br>marcas que<br><span class="text-gold">evolucionan.</span>
+                  </h3>
+                </div>
+
+                <!-- Divider -->
+                <div class="revela-intro-divider">
+                  <div class="revela-v-line"></div>
+                  <span class="revela-dot"></span>
+                </div>
+
+                <!-- Right Column -->
+                <div class="revela-intro-col revela-intro-col--right">
+                  <p class="revela-intro-manifesto">
+                    <span class="revela-text-serif-lg">Construimos <em>o</em> redefinimos</span><br>
+                    <span class="revela-text-italic-lg">tu identidad</span><br>
+                    <span class="revela-text-serif-md">para que cada <em>palabra, decisión y diseño</em></span><br>
+                    <span class="revela-text-serif-md">expresen con <strong class="text-white">claridad</strong></span><br>
+                    <span class="revela-text-serif-md">quién es <em><strong>tu marca hoy</strong></em></span>
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- SLIDE 2: 4 Steps (Descubrir, Definir, Expresar, Activar) -->
+            <div class="revela-slide revela-slide--steps" id="revela-slide-1">
+              <div class="revela-timeline-grid">
+                
+                <!-- Column 1: Descubrir -->
+                <div class="revela-col">
+                  <h3 class="revela-step-name text-black scramble-revela" data-final="Descubrir">Descubrir</h3>
+                  <h4 class="revela-step-subtitle">Profundizar en la historia, visión y propósito</h4>
+                  <p class="revela-step-body text-white">
+                    Profundizamos en la historia, la visión, la personalidad y el propósito de la marca para revelar una identidad clara y un posicionamiento auténtico.
+                  </p>
+                </div>
+
+                <!-- Divider 1 -->
+                <div class="revela-divider">
+                  <span class="revela-dot"></span>
+                </div>
+
+                <!-- Column 2: Definir -->
+                <div class="revela-col">
+                  <h3 class="revela-step-name text-black scramble-revela" data-final="Definir">Definir</h3>
+                  <h4 class="revela-step-subtitle">Darle voz y convertir la identidad en un lenguaje propio</h4>
+                  <p class="revela-step-body text-white">
+                    Le damos una voz. Convertimos esa identidad en un lenguaje propio, narrativa y mensajes clave para que cada palabra construya significado y percepción.
+                  </p>
+                </div>
+
+                <!-- Divider 2 -->
+                <div class="revela-divider">
+                  <span class="revela-dot"></span>
+                </div>
+
+                <!-- Column 3: Expresar -->
+                <div class="revela-col">
+                  <h3 class="revela-step-name text-black scramble-revela" data-final="Expresar">Expresar</h3>
+                  <h4 class="revela-step-subtitle">Traducir verbal y visualmente</h4>
+                  <p class="revela-step-body text-white">
+                    Traducimos esa identidad en un lenguaje verbal y visual coherente.<br><br>
+                    La comunicamos con claridad, creatividad y acorde a la personalidad de la marca.
+                  </p>
+                </div>
+
+                <!-- Divider 3 -->
+                <div class="revela-divider">
+                  <span class="revela-dot"></span>
+                </div>
+
+                <!-- Column 4: Activar -->
+                <div class="revela-col">
+                  <h3 class="revela-step-name text-black scramble-revela" data-final="Activar">Activar</h3>
+                  <h4 class="revela-step-subtitle">Comunicar con claridad y creatividad</h4>
+                  <p class="revela-step-body text-white">
+                    El valor de una identidad no está en un Brand Book.<br><br>
+                    Contamos historias que se sienten, conectan y venden.
+                  </p>
+                </div>
+
+              </div>
+            </div>
+
+          </div><!-- /revela-slider-track -->
+
+          <!-- Slider Navigation Bar -->
+          <div class="revela-slider-nav">
+            <button id="revela-prev-btn" class="revela-nav-btn is-disabled" aria-label="Slide anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              <span>Inicio</span>
+            </button>
+            <div class="revela-dots-wrap">
+              <span class="revela-dot-item active" data-slide="0"></span>
+              <span class="revela-dot-item" data-slide="1"></span>
+            </div>
+            <button id="revela-next-btn" class="revela-nav-btn" aria-label="Siguiente slide">
+              <span>Método (4 Pasos)</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /revela-slider-wrapper -->
+      </div>
+    </section>
+
+    <!-- Section 4b: Consultoría Estratégica -->
+    <section id="consultoria" class="consultoria-est-section">
+      <div class="section-container">
+
+        <!-- Top Eyebrow Tag -->
+        <div class="ce-eyebrow-row scroll-reveal">
+          <span class="ce-eyebrow-tag">ACOMPAÑAMIENTO ESTRATÉGICO</span>
+        </div>
+
+        <!-- Top: Title + Split Statement -->
+        <div class="ce-top scroll-reveal">
+          <div class="ce-title-block">
+            <h2 class="ce-main-title">Consultoría<br><em>Estratégica</em></h2>
+          </div>
+          <div class="ce-divider">
+            <div class="ce-v-line"></div>
+            <span class="ce-dot"></span>
+          </div>
+          <div class="ce-statements ce-glass-card">
+            <p class="ce-statement-left">
+              No solo construimos marcas.<br>
+              <em class="text-gold">Acompañamos</em> a quienes las construyen.
+            </p>
+            <div class="ce-h-rule"></div>
+            <p class="ce-statement-right">
+              No siempre una marca necesita cambiar.<br>
+              <em>A veces necesita comprender mejor quién es.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- Middle: Big Quote -->
+        <div class="ce-quote-block ce-glass-card scroll-reveal">
+          <span class="ce-quote-mark">“</span>
+          <blockquote class="ce-blockquote">
+            La claridad <strong>no consiste</strong> en decirle a una marca quién debe ser.
+            Consiste <em class="text-gold">en apoyarla</em> a descubrir quién es,
+            para que pueda tomar sus propias <em class="text-gold">decisiones con confianza.</em>
+          </blockquote>
+        </div>
+
+        <!-- Bottom: Three Pillars Grid -->
+        <div class="ce-pillars-wrap scroll-reveal">
+          <div class="ce-pillars-header">
+            <span class="ce-pillars-tag">NUESTROS PILARES</span>
+          </div>
+          <div class="ce-pillars-grid">
+            <div class="ce-pillar-card ce-glass-card">
+              <span class="ce-pillar-num">01</span>
+              <span class="ce-pillar-word">CONSTRUIMOS</span>
+              <h3 class="ce-pillar-noun">IDENTIDAD.</h3>
+              <p class="ce-pillar-desc">Definimos la esencia y el propósito que hacen única a tu marca en el mercado.</p>
+            </div>
+            <div class="ce-pillar-card ce-glass-card">
+              <span class="ce-pillar-num">02</span>
+              <span class="ce-pillar-word">COMPARTIMOS</span>
+              <h3 class="ce-pillar-noun">CRITERIO.</h3>
+              <p class="ce-pillar-desc">Aportamos más de 25 años de visión estratégica para orientar cada decisión creativa.</p>
+            </div>
+            <div class="ce-pillar-card ce-glass-card">
+              <span class="ce-pillar-num">03</span>
+              <span class="ce-pillar-word">ACOMPAÑAMOS</span>
+              <h3 class="ce-pillar-noun">DECISIONES.</h3>
+              <p class="ce-pillar-desc">Lideramos cada proyecto directamente sin intermediarios, protegiendo la esencia en todo el camino.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4c: Nuestro Talento -->
+    <section id="talento" class="talento-section">
+      <div class="section-container">
+
+        <!-- Top Eyebrow Tag -->
+        <div class="talento-eyebrow-row scroll-reveal">
+          <span class="talento-eyebrow-tag">NUESTRA FILOSOFÍA</span>
+        </div>
+
+        <div class="talento-grid scroll-reveal">
+
+          <!-- Left: Stacked TALENTO Word -->
+          <div class="talento-left">
+            <span class="talento-nuestro">nuestro</span>
+            <div class="talento-big-word">
+              <span class="tw-line tw-line--gold">TA</span>
+              <span class="tw-line tw-line--white">LEN</span>
+              <span class="tw-line tw-line--gold">TO</span>
+            </div>
+          </div>
+
+          <!-- Center Dot -->
+          <div class="talento-center-dot"><span class="tc-dot"></span></div>
+
+          <!-- Right: Two columns of text in glass card -->
+          <div class="talento-right talento-glass-box">
+            <div class="talento-col">
+              <p class="talento-body">
+                En <strong>Mente Lativa</strong> creemos que una gran identidad no nace de un proceso automático.
+                Nace del criterio, la curiosidad y el compromiso de quienes la construyen.
+              </p>
+              <p class="talento-body">
+                Por eso cada proyecto es liderado directamente por quienes definen la estrategia,
+                desarrollan la narrativa y diseñan la identidad de la marca.
+              </p>
+            </div>
+            <div class="talento-col">
+              <p class="talento-body">
+                <em class="text-gold">Sin intermediarios. Sin perder la esencia en el camino.</em>
+              </p>
+              <p class="talento-body">
+                Creemos que las mejores ideas aparecen cuando el pensamiento estratégico y la sensibilidad creativa trabajan como una sola disciplina.
+              </p>
+              <p class="talento-body highlight-quote-sm">
+                Ese es el talento que ponemos al servicio de cada marca.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="portafolio" class="portafolio-section text-theme-white bg-theme-teal">
+      <div class="section-container" style="position:relative;z-index:2">
+        
+        <!-- Casos de Éxito / Marcas Header -->
+        <div class="cases-header scroll-reveal" id="casos-de-exito">
+          <span class="portfolio-highlight-tag">PORTAFOLIO</span>
+          <h2 class="cases-title text-white">Marcas que confían en nosotros</h2>
+          <p class="cases-subtitle text-white-80">Nuestros clientes entienden una misma verdad: si no defines una historia sobre tu marca, otros lo harán por ti.</p>
+        </div>
+
+        <!-- Brand Logos Grid -->
+        <div class="logos-grid scroll-reveal" id="brands-grid">
+          <!-- Programmatically filled with segmented success brand logos -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 6: Contacto (Footer) -->
+    <section id="contacto" class="contacto-section text-theme-dark bg-theme-black">
+      <div class="section-container">
+        <div class="contacto-split">
+          <!-- Left side: Messaging -->
+          <div class="contacto-info-col scroll-reveal">
+            <!-- Stacked bold identity text -->
+            <div class="contact-identity-headline">
+              <span class="cih-line cih-line--teal">ESCRIBIENDO,</span>
+              <span class="cih-line cih-line--white">DISEÑANDO,</span>
+              <span class="cih-line cih-line--teal">CREANDO</span>
+              <span class="cih-line cih-line--white">IDENTIDAD</span>
+            </div>
+
+            <div class="direct-contact-info">
+              <a href="mailto:hola@mentelativa.mx" class="contact-info-link" id="contact-email">
+                <span class="link-label">Escríbenos</span>
+                <span class="link-value">hola@mentelativa.mx</span>
+              </a>
+              <a href="https://instagram.com/mentelativa" target="_blank" rel="noopener" class="contact-info-link contact-info-link--insta" id="contact-instagram">
+                <span class="link-label">Instagram</span>
+                <span class="link-value-insta">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="0.9" fill="currentColor" stroke="none"/>
+                  </svg>
+                  <span>@mentelativa</span>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right side: Conversational Form -->
+          <div class="contacto-form-col scroll-reveal">
+            <form id="conversational-form" class="conversational-form" action="#" method="POST">
+              <div class="form-line">
+                <span>Hola, me llamo</span>
+                <input type="text" id="form-name" name="name" placeholder="tu nombre" required autocomplete="name">
+              </div>
+              <div class="form-line">
+                <span>y represento a</span>
+                <input type="text" id="form-company" name="company" placeholder="tu marca o proyecto" required autocomplete="organization">
+              </div>
+              <div class="form-line">
+                <span>puedes escribirme a</span>
+                <input type="email" id="form-email" name="email" placeholder="tu correo electrónico" required autocomplete="email">
+              </div>
+              <div class="form-line">
+                <span>me gustaría conversar sobre</span>
+                <select id="form-interest" name="interest" required>
+                  <option value="" disabled selected>selecciona una opción</option>
+                  <option value="verbal">Identidad Verbal</option>
+                  <option value="visual">Identidad Visual</option>
+                  <option value="completo">Proyecto Integral (Ambos)</option>
+                  <option value="otro">Otra idea creativa</option>
+                </select>
+              </div>
+              <div class="form-submit-row">
+                <button type="submit" id="form-submit-btn" class="form-submit-btn">
+                  <span>Enviar Mensaje</span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+            <div id="form-success-msg" class="form-success-msg hidden">
+              <p>¡Gracias por escribirnos! En breve nos pondremos en contacto contigo para hacer historia juntos.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer bottom -->
+        <div class="footer-bottom">
+          <p class="copyright">&copy; 2026 Mente Lativa. Todos los derechos reservados.</p>
+          <a href="#hero" class="back-to-top" id="back-to-top-btn" aria-label="Volver arriba">
+            <span>Volver arriba</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+<?php
+get_footer();
